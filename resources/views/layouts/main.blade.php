@@ -6,15 +6,40 @@
 
         <title>@yield('title')</title>
 
-        <!-- Estilo CSS -->
-        <link rel="stylesheet" href="/css/style.css">
+        <!-- Fonte do Google -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+        
+        <!-- CSS do Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <!-- CSS da Aplicação-->
+        <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-        @yield('content');
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <a href="/">
+                        <img src="/img/logo.svg" alt="vária pessoas em um circulo">
+                    </a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Criar Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Cadastrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        @yield('content')
         <footer>
             <p>Events &copy; 2024</p>
         </footer>

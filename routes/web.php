@@ -3,9 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $nome = 'Tiago';
-
-    return view('welcome', ['nome'=>$nome]);
+    return view('welcome');
 });
 
 Route::get('/contact', function() {
@@ -14,4 +12,8 @@ Route::get('/contact', function() {
 
 Route::get('/products', function() {
     return view('products');
+});
+
+Route::get('/products}', function($id){
+    return view('product', ['id' => $id]);
 });
