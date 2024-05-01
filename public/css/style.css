@@ -136,22 +136,6 @@ header {
     color: #757575;
 }
 
-/* FOOTER */
-
-footer {
-    text-align: center;
-    background-color: #353E48;
-    color: #FFF;
-    padding: 30px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    margin-bottom: 0;
-}
-
 /* PAGINA CRIAR EVENTO */
 
 #event-create-container {
@@ -166,5 +150,69 @@ footer p {
 #event-create-container select,
 #event-create-container textarea {
     font-size: 12px;
+}
+
+/* EVENTS PAGE */
+
+#image-container,
+#info-container {
+    margin-top: 30px;
+}
+
+#image-container img {
+    border-radius: 10px;
+}
+
+#info-conntainer h1 {
+    font-size: 36px;
+    font-weight: 900;
+}
+
+#info-container p {
+    margin: 0;
+    font-size: 14px;
+    display: flex;
+}
+
+#info-container h3,
+#description-container h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#info-container ion-icon {
+    font-size: 20px;
+    color: #F2A340;
+    margin-right: 5px;
+}
+
+#info-container #event-submit {
+    margin: 20px 0;
+}
+
+#items-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+#items-list li {
+    display: flex;
+    align-items: center;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    background-color: #353E48;
+    color: #FFF;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin-bottom: 0;
 }
 
