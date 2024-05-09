@@ -8,6 +8,8 @@ Route::get('/events/create', [EventController::class, 'create'])->middleware('au
 Route::get('/events/{id}', [EventController::class, 'show']);
 Route::post('/events', [EventController::class, 'store']);
 
+Route::delete('/events/{id}', [EventController::class, 'destroy']);
+
 //Routa para deshboard e garantir que esteja logado o usuário.
 Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
 
