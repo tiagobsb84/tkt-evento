@@ -80,7 +80,9 @@ class EventController extends Controller
         //como o usuário já está logado, só pega a proprieade la do User hasMany()
         $events = $user->events;
 
-        return view('events.dashboard', ['events' => $events]);
+        $eventsAsParticipant = $user->eventsAsParticipant;
+
+        return view('events.dashboard', ['events' => $events, 'eventsasparticipant' => $eventsAsParticipant]);
         
     }
 
@@ -122,4 +124,18 @@ class EventController extends Controller
         return redirect('/dashboard')->with('msg', 'Evento editado com sucesso!');
 
     }
+
+        public function joinEvent($id)
+        {
+            $user = auth()->user();
+            $users = User::all(); // Obtém todos os usuários
+
+            foreach ($users as $user) {
+                $user->eventsAsParticipant()->attach($id);
+            }
+
+            $event = Event::findOrFail($id);
+
+            return redirect('/dashboard')->with('msg', 'Sua presença está confirmada no evento' . $event->title );
+        }
 }
