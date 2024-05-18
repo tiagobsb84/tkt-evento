@@ -24,7 +24,7 @@
                     <!--$loop é uma variável especial em Blade que fornece informação sobre o loop atual--> 
                     <td scropt="row">{{ $loop->index + 1 }}</td>
                     <td><a href="/events/{{ $event->id }}">{{ $event->title }}</a></td>
-                    <td>0</td>
+                    <td>{{ count($event->users) }}</td>
                     <td>
                         <a href="/events/edit/{{ $event->id }}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon> Editar</a>
                         <form action="/events/{{ $event->id }}" method="POST">
@@ -45,7 +45,7 @@
     <h1>Eventos que estou participando</h1>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-events-container">
-    @if(count($eventsasparticipant) > 0):
+    @if(count($eventsasparticipant) > 0)
     <table class="table">
         <thead>
             <tr>
@@ -63,7 +63,14 @@
                     <td><a href="/events/{{ $event->id }}">{{ $event->title }}</a></td>
                     <td>{{ count ($event->users) }}</td>
                     <td>
-                        <a href="#">Sair do evento</a>
+                        <form action="/events/{{ $event->id }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger delete-btn">
+                                <ion-icon name="trash-outline"></ion-icon>
+                                Sair do Evento
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -73,5 +80,4 @@
     <p>Você ainda não está participando de nenhum evento, <a href="/">veja todos os eventos</a></p>
     @endif
 </div>
-
 @endsection
